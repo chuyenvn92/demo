@@ -141,7 +141,7 @@
             <p><strong>Location:</strong> Phong Lan Hall, Hanoi</p>
             <p><strong>Dress Code:</strong> Retro Chic</p>
         </div>
-        <audio controls autoplay loop style="display: none;">
+        <audio id="background-music" controls autoplay loop style="display: none;">
           <source src="/bqmcd.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
       </audio>
@@ -166,6 +166,7 @@
         // Lấy các phần tử
         const lyricsElement = document.querySelector('.lyrics');
         const timelinePage = document.getElementById('timelinePage');
+        const backgroundMusic = document.getElementById('background-music');
         const backButton = document.getElementById('backButton');
 
         // Hiển thị timeline khi nhấp vào lyrics
@@ -177,6 +178,10 @@
         backButton.addEventListener('click', () => {
             timelinePage.style.display = 'none';
         });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+          await backgroundMusic.play();
+        })
     </script>
 </body>
 </html>
