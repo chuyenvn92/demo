@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Invitation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .invitation {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 70%;
+            margin: auto;
+            position: relative;
+        }
+        .invitation h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .phonograph {
+            margin-top: 20px;
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: auto;
+        }
+        .record {
+            width: 100%;
+            height: 100%;
+            background: url('https://images.squarespace-cdn.com/content/v1/59b22f1c59cc681cdd5036ab/1598762788454-MQJ4974OQGRC5Z4YRGQR/Late-for-the-Train-Plant-It-or-Build-It-vinyl-album-art-side-a.jpg') no-repeat center;
+            background-size: cover;
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+        }
+        .music-note {
+            position: absolute;
+            font-size: 20px;
+            animation: floatNotes 5s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes floatNotes {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(100px, -150px); opacity: 0; }
+        }
+        .lyrics {
+            font-size: 1em;
+            font-style: italic;
+            margin-top: 20px;
+            color: #34495e;
+            animation: fadeLyrics 10s infinite;
+        }
+        @keyframes fadeLyrics {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        .info {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation">
+        <h1>You're Invited to the Soul of the "FOR REST"!</h1>
+        <div class="phonograph">
+            <div class="record"></div>
+            <div class="music-note" style="top: 50%; left: 20%;">♪</div>
+            <div class="music-note" style="top: 30%; left: 70%;">♫</div>
+            <div class="music-note" style="top: 60%; left: 40%;">♬</div>
+        </div>
+        <div class="lyrics">"Too much to do, too little time..."</div>
+        <div class="info">
+            <p><strong>Name:</strong> Year-End Celebration 2024</p>
+            <p><strong>Location:</strong> Phong Lan Hall, Hanoi</p>
+            <p><strong>Dress Code:</strong> Retro Chic</p>
+        </div>
+        <audio controls autoplay loop style="display: none;">
+            <source src="./bqmcd.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</body>
+</html>
