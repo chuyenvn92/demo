@@ -43,9 +43,10 @@
             animation: spin 10s linear infinite;
         }
         .music-note {
-            position: absolute;
-            font-size: 20px;
-            animation: floatNotes 5s linear infinite;
+          position: absolute;
+          font-size: 20px;
+          animation: floatNotes 5s linear infinite;
+          color: #8e44ad;
         }
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -60,11 +61,58 @@
             font-style: italic;
             margin-top: 20px;
             color: #34495e;
+            cursor: pointer;
             animation: fadeLyrics 10s infinite;
         }
-        @keyframes fadeLyrics {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+
+        .timeline-page {
+            display: none;
+            background-color: #2c3e50;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .timeline-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: textSlide 5s linear infinite;
+        }
+
+        @keyframes textSlide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .timeline-content {
+            font-size: 1.2em;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #c0392b;
         }
         .info {
             font-size: 1.2em;
@@ -78,6 +126,7 @@
     </style>
 </head>
 <body>
+    <!-- Trang chính -->
     <div class="invitation">
         <h1>You're Invited to the Soul of the "FOR REST"!</h1>
         <div class="phonograph">
@@ -93,9 +142,41 @@
             <p><strong>Dress Code:</strong> Retro Chic</p>
         </div>
         <audio controls autoplay loop style="display: none;">
-            <source src="/bqmcd.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+          <source src="/bqmcd.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
     </div>
+
+    <!-- Trang timeline -->
+    <div class="timeline-page" id="timelinePage">
+        <div class="timeline-title">Event Timeline</div>
+        <div class="timeline-content">
+            <ul>
+                <li><strong>10:00 AM:</strong> Registration and Welcome</li>
+                <li><strong>11:00 AM:</strong> Keynote Speech</li>
+                <li><strong>1:00 PM:</strong> Lunch Break</li>
+                <li><strong>2:00 PM:</strong> Workshops</li>
+                <li><strong>5:00 PM:</strong> Closing Ceremony</li>
+            </ul>
+        </div>
+        <button class="back-button" id="backButton">Back</button>
+    </div>
+
+    <script>
+        // Lấy các phần tử
+        const lyricsElement = document.querySelector('.lyrics');
+        const timelinePage = document.getElementById('timelinePage');
+        const backButton = document.getElementById('backButton');
+
+        // Hiển thị timeline khi nhấp vào lyrics
+        lyricsElement.addEventListener('click', () => {
+            timelinePage.style.display = 'flex';
+        });
+
+        // Quay lại trang chính
+        backButton.addEventListener('click', () => {
+            timelinePage.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
