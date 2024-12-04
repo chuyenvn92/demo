@@ -7,11 +7,20 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             text-align: center;
             padding: 50px;
             overflow: hidden;
         }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         .invitation {
             background-color: #fff;
             border: 2px solid #ccc;
@@ -23,9 +32,15 @@
             position: relative;
         }
         .invitation h1 {
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: glitter 2s linear infinite;
+        }
+
+        @keyframes glitter {
+            0%, 100% { text-shadow: 0 0 5px #f3f, 0 0 10px #f3f, 0 0 20px #ff6a00; }
+            50% { text-shadow: 0 0 15px #f3f, 0 0 30px #ee0979, 0 0 45px #ff6a00; }
         }
         .phonograph {
             margin-top: 20px;
@@ -123,11 +138,69 @@
         audio {
             margin-top: 20px;
         }
+        .dress-code {
+            margin-top: 20px;
+        }
+
+        .dress-code-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .dress-code-balls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .dress-code-ball {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .ball-1 { background-color: #A02334; }
+        .ball-2 { background-color: #FFAD60; }
+        .ball-3 { background-color: #FFEEAD; }
+        .ball-4 { background-color: #96CEB4; }
+
+        .bubble-1 { width: 50px; height: 50px; left: 10%; animation-duration: 8s; }
+        .bubble-2 { width: 30px; height: 30px; left: 30%; animation-duration: 6s; }
+        .bubble-3 { width: 70px; height: 70px; left: 50%; animation-duration: 10s; }
+        .bubble-4 { width: 40px; height: 40px; left: 70%; animation-duration: 12s; }
+        .bubble-5 { width: 60px; height: 60px; left: 90%; animation-duration: 8s; }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
     </style>
 </head>
 <body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
     <div class="invitation">
-        <h1>You're Invited to The Soul of the "FOR REST"!</h1>
+        <h1>You're Invited to The Soul of the "FOR REST"</h1>
         <div class="phonograph">
             <div class="record"></div>
             <div class="music-note" style="top: 50%; left: 20%;">♪</div>
@@ -136,10 +209,20 @@
         </div>
         <div class="lyrics">"Too much to do, too little time..."</div>
         <div class="info">
-            <p><strong>Name:</strong> Year-End Celebration 2024</p>
-            <p><strong>Location:</strong> Phong Lan Hall, Hanoi</p>
-            <p><strong>Dress Code:</strong> Retro Chic</p>
+            <p><strong>Name:</strong> Year-End Party 2024</p>
+            <p><strong>Location:</strong> 
+              <a href="https://www.google.com/maps/dir/21.0140201,105.8316104/20.7688352,105.3308308/@20.8948313,105.2468917,10z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI0MTIwMS4xIKXMDSoASAFQAw%3D%3D">Đồng Chanh Lake Ville</a>
+            </p>
+            <p><strong>Dress Code:</strong> 
+              <div class="dress-code-balls">
+                <div class="dress-code-ball ball-1"></div>
+                <div class="dress-code-ball ball-2"></div>
+                <div class="dress-code-ball ball-3"></div>
+                <div class="dress-code-ball ball-4"></div>
+              </div>
+            </p>
         </div>
+      </div>
         <audio id="background-music" controls allow="autoplay" loop style="display: none;">
           <source src="/bqmcd.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
@@ -162,18 +245,15 @@
     </div>
 
     <script>
-        // Lấy các phần tử
         const lyricsElement = document.querySelector('.lyrics');
         const timelinePage = document.getElementById('timelinePage');
         const backgroundMusic = document.getElementById('background-music');
         const backButton = document.getElementById('backButton');
 
-        // Hiển thị timeline khi nhấp vào lyrics
         lyricsElement.addEventListener('click', () => {
             timelinePage.style.display = 'flex';
         });
 
-        // Quay lại trang chính
         backButton.addEventListener('click', () => {
             timelinePage.style.display = 'none';
         });
