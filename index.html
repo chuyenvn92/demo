@@ -3,149 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year End Party Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agu+Display&display=swap" rel="stylesheet">
+    <title>OE Year end</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            text-align: center;
-            padding: 50px;
-            overflow: hidden;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .invitation {
-            background-color: #fff;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            padding: 30px;
-            width: 70%;
-            margin: auto;
-            position: relative;
-        }
-        .invitation h1 {
-            background: linear-gradient(90deg, #ff6a00, #ee0979);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: glitter 2s linear infinite;
-        }
-
-        @keyframes glitter {
-            0%, 100% { text-shadow: 0 0 5px #f3f, 0 0 10px #f3f, 0 0 20px #ff6a00; }
-            50% { text-shadow: 0 0 15px #f3f, 0 0 30px #ee0979, 0 0 45px #ff6a00; }
-        }
-        .phonograph {
-            margin-top: 20px;
-            position: relative;
-            width: 250px;
-            height: 250px;
-            margin: auto;
-        }
-        .record {
-            width: 100%;
-            height: 100%;
-            background: url('https://images.squarespace-cdn.com/content/v1/59b22f1c59cc681cdd5036ab/1598762788454-MQJ4974OQGRC5Z4YRGQR/Late-for-the-Train-Plant-It-or-Build-It-vinyl-album-art-side-a.jpg') no-repeat center;
-            background-size: cover;
-            border-radius: 50%;
-            animation: spin 10s linear infinite;
-        }
-        .music-note {
-          position: absolute;
-          font-size: 20px;
-          animation: floatNotes 5s linear infinite;
-          color: #8e44ad;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @keyframes floatNotes {
-            0% { transform: translate(0, 0); opacity: 1; }
-            100% { transform: translate(100px, -150px); opacity: 0; }
-        }
-        .lyrics {
-            font-size: 1em;
-            font-style: italic;
-            margin-top: 20px;
-            color: #34495e;
-            cursor: pointer;
-            animation: fadeLyrics 10s infinite;
-        }
-
-        .timeline-page {
-            display: none;
-            background-color: #2c3e50;
-            color: #fff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            font-family: "Agu Display", serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Asset 15.png'); ;
+            display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            animation: fadeIn 1s forwards;
+            height: 100vh;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .text-header {
+            text-align: center;
+            color: #dd5341;
         }
 
-        .timeline-title {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            animation: textSlide 5s linear infinite;
+        .container {
+            width: 500px;
+            height: 600px;
+            position: relative;
+            background-color: #42a6c2;
+            border-radius: 10px;
         }
 
-        @keyframes textSlide {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+        .vinyl {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 350px;
+            height: 350px;
+            background-image: url('/Asset 1-0.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            animation: spin 4s linear infinite;
         }
 
-        .timeline-content {
-            font-size: 1.2em;
+        .vinyl-center {
+            position: absolute;
+            top: 41%;
+            left: 35%;
+            width: 100px;
+            height: 100px;
+            background-image: url('/Asset 1-1.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-radius: 50%;
         }
 
-        .back-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #fff;
-            background-color: #e74c3c;
-            border: none;
-            border-radius: 5px;
+        .vinyl-point {
+            position: absolute;
+            top: 48%;
+            left: 43%;
+            width: 20px;
+            height: 20px;
+            background-image: url('/Asset 1-2.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tonearm {
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            width: 120px;
+            height: 250px;
+            background-image: url('/Asset 5.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .volume-slider {
+            position: absolute;
+            bottom: 20%;
+            right: 3%;
+            width: 50px;
+            height: 200px;
+            background-image: url('/Asset 10.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .button-red {
+            position: absolute;
+            bottom: 5%;
+            left: 15%;
+            width: 70px;
+            height: 70px;
+            width: 70px;
+            height: 70px;
+            background-image: url('/Asset 6.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .button-red-left {
+            position: absolute;
+            bottom: 22%;
+            left: 5%;
+            width: 50px;
+            height: 50px;
+            background-image: url('/Asset 7.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .button-black-bottom {
+            position: absolute;
+            bottom: 9%;
+            left: 4%;
+            width: 50px;
+            height: 47px;
+            background-image: url('/Asset 8.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 22%;
+            width: 100%;
+            left: 30%;
+            height: 50px;
+            background-image: url('/Asset 9.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .icon-footer{
+            position: absolute;
+            position: absolute;
+            bottom: 13%;
+            width: 100%;
+            left: 10%;
+            height: 20px;
+            background-image: url('/Asset 11.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 22%;
+            right: 38%;
+            width: 100%;
+            height: 50px;
+            background-image: url('/Asset 12.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .timeline-button {
+            position: absolute;
+            bottom: 2%;
+            left: 80%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background-color: #dd5341;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
+            font-size: 14px;
         }
 
-        .back-button:hover {
-            background-color: #c0392b;
+        .timeline-info {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            padding: 10px;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            display: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-        .info {
-            font-size: 1.2em;
-            color: #2c3e50;
-            margin-top: 20px;
-            font-weight: bold;
+
+        .timeline-info.visible {
+            display: block;
         }
-        audio {
-            margin-top: 20px;
-        }
+
         .dress-code {
-            margin-top: 20px;
-        }
-
-        .dress-code-title {
-            font-size: 1.5em;
-            color: #2c3e50;
-            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         .dress-code-balls {
@@ -155,8 +220,8 @@
         }
 
         .dress-code-ball {
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             display: inline-block;
         }
@@ -165,102 +230,67 @@
         .ball-2 { background-color: #FFAD60; }
         .ball-3 { background-color: #FFEEAD; }
         .ball-4 { background-color: #96CEB4; }
-
-        .bubble-1 { width: 50px; height: 50px; left: 10%; animation-duration: 8s; }
-        .bubble-2 { width: 30px; height: 30px; left: 30%; animation-duration: 6s; }
-        .bubble-3 { width: 70px; height: 70px; left: 50%; animation-duration: 10s; }
-        .bubble-4 { width: 40px; height: 40px; left: 70%; animation-duration: 12s; }
-        .bubble-5 { width: 60px; height: 60px; left: 90%; animation-duration: 8s; }
-
-        .bubble {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            animation: float 10s linear infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-1000px) scale(0.5);
-                opacity: 0;
-            }
-        }
-
     </style>
 </head>
 <body>
-    <div class="bubble bubble-1"></div>
-    <div class="bubble bubble-2"></div>
-    <div class="bubble bubble-3"></div>
-    <div class="bubble bubble-4"></div>
-    <div class="bubble bubble-5"></div>
+    <div class="container">
+        <h1 class="text-header">The Soul of the "FOR REST"</h1>
+        <div class="top-left"></div>
+        <div class="vinyl"></div>
+        <div class="vinyl-center"></div>
+        <div class="vinyl-point"></div>
+        <div class="tonearm"></div>
+        <div class="volume-slider"></div>
+        <div class="button-red-left"></div>
+        <div class="button-black-bottom"></div>
+        <div class="button-red"></div>
+        <div class="icon-footer"></div>
+        <div class="footer"></div>
 
-    <div class="invitation">
-        <h1>You're Invited to The Soul of the "FOR REST"</h1>
-        <div class="phonograph">
-            <div class="record"></div>
-            <div class="music-note" style="top: 50%; left: 20%;">♪</div>
-            <div class="music-note" style="top: 30%; left: 70%;">♫</div>
-            <div class="music-note" style="top: 60%; left: 40%;">♬</div>
+        <div class="timeline-button">Info</div>
+        <div class="timeline-info">
+            <p><strong>Timeline</strong></p>
+            <p>Day 1: </p>
+            <p>- 12h30: Di chuyển</p>
+            <p>- 14h15-17h: Chơi game, chụp ảnh</p>
+            <p>- 18h-19h30: Gala, trao giải, phát biểu</p>
+            <p>- 19h30-....: Tiệc tối</p>
+            <p>Day 2: </p>
+            <p>- 10h: Dọn đồ, checkout</p>
+            <p>- 12h: Xuất phát về</p>
+            <p><strong>Location:</strong> Đồng Chanh Lake Ville</p>
+            <div class="dress-code"><strong>Dress code:</strong>
+                <p class="dress-code-balls">
+                    <span class="dress-code-ball ball-1"></span>
+                    <span class="dress-code-ball ball-2"></span>
+                    <span class="dress-code-ball ball-3"></span>
+                    <span class="dress-code-ball ball-4"></span>
+                </p>
+            </div>
         </div>
-        <div class="lyrics">"Too much to do, too little time..."</div>
-        <div class="info">
-            <p><strong>Name:</strong> Year-End Party 2024</p>
-            <p><strong>Location:</strong> 
-              <a href="https://www.google.com/maps/dir/21.0140201,105.8316104/20.7688352,105.3308308/@20.8948313,105.2468917,10z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI0MTIwMS4xIKXMDSoASAFQAw%3D%3D">Đồng Chanh Lake Ville</a>
-            </p>
-            <p><strong>Dress Code:</strong> 
-              <div class="dress-code-balls">
-                <div class="dress-code-ball ball-1"></div>
-                <div class="dress-code-ball ball-2"></div>
-                <div class="dress-code-ball ball-3"></div>
-                <div class="dress-code-ball ball-4"></div>
-              </div>
-            </p>
-        </div>
-      </div>
         <audio id="background-music" controls allow="autoplay" loop style="display: none;">
-          <source src="/bqmcd.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-      </audio>
+            <source src="/bqmcd.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
-
-    <!-- Trang timeline -->
-    <div class="timeline-page" id="timelinePage">
-        <div class="timeline-title">Event Timeline</div>
-        <div class="timeline-content">
-            <ul>
-                <li><strong>10:00 AM:</strong> Registration and Welcome</li>
-                <li><strong>11:00 AM:</strong> Keynote Speech</li>
-                <li><strong>1:00 PM:</strong> Lunch Break</li>
-                <li><strong>2:00 PM:</strong> Workshops</li>
-                <li><strong>5:00 PM:</strong> Closing Ceremony</li>
-            </ul>
-        </div>
-        <button class="back-button" id="backButton">Back</button>
-    </div>
-
-    <script>
-        const lyricsElement = document.querySelector('.lyrics');
-        const timelinePage = document.getElementById('timelinePage');
-        const backgroundMusic = document.getElementById('background-music');
-        const backButton = document.getElementById('backButton');
-
-        lyricsElement.addEventListener('click', () => {
-            timelinePage.style.display = 'flex';
-        });
-
-        backButton.addEventListener('click', () => {
-            timelinePage.style.display = 'none';
-        });
-
-        document.addEventListener('click', async () => {
-          await backgroundMusic.play();
-        })
-    </script>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        const button = document.querySelector('.timeline-button');
+        const backgroundMusic = document.getElementById('background-music');
+        const info = document.querySelector('.timeline-info');
+
+        button.addEventListener('click', function() {
+            info.classList.toggle('visible');
+        });
+
+        await backgroundMusic.play();
+    });
+
+    document.addEventListener('click', async () => {
+        const backgroundMusic = document.getElementById('background-music');
+        await backgroundMusic.play();
+    })
+</script>
 </html>
