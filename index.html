@@ -42,6 +42,9 @@
             background-size: contain;
             background-repeat: no-repeat;
             border-radius: 50%;
+        }
+
+        .vinyl.spin-animation {
             animation: spin 4s linear infinite;
         }
 
@@ -78,11 +81,13 @@
             position: absolute;
             top: 15%;
             right: 5%;
-            width: 120px;
+            width: 140px;
             height: 250px;
             background-image: url('/Asset 5.png');
             background-size: contain;
             background-repeat: no-repeat;
+            transform: rotate(-30deg);
+            transition: transform 0.5s ease;
         }
 
         .volume-slider {
@@ -118,6 +123,7 @@
             background-image: url('/Asset 7.png');
             background-size: contain;
             background-repeat: no-repeat;
+            cursor: pointer;
         }
 
         .button-black-bottom {
@@ -230,6 +236,11 @@
         .ball-2 { background-color: #FFAD60; }
         .ball-3 { background-color: #FFEEAD; }
         .ball-4 { background-color: #96CEB4; }
+
+        .tonearm-rotate {
+            transform: rotate(10deg);
+            transition: transform 0.5s ease;
+        }
     </style>
 </head>
 <body>
@@ -269,7 +280,7 @@
             </div>
         </div>
         <audio id="background-music" controls allow="autoplay" loop style="display: none;">
-            <source src="/bqmcd.mp3" type="audio/mpeg">
+            <source src="/musicbg.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -277,20 +288,31 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", async () => {
-        const button = document.querySelector('.timeline-button');
-        const backgroundMusic = document.getElementById('background-music');
-        const info = document.querySelector('.timeline-info');
+    const button = document.querySelector('.timeline-button');
+    const playButton = document.querySelector('.button-red-left');
+    const backgroundMusic = document.getElementById('background-music');
+    const info = document.querySelector('.timeline-info');
+    const vinyl = document.querySelector('.vinyl');
+    const tonearm = document.querySelector('.tonearm');
 
-        button.addEventListener('click', function() {
-            info.classList.toggle('visible');
-        });
+    let isPlaying = false;
 
-        await backgroundMusic.play();
+    button.addEventListener('click', function() {
+        info.classList.toggle('visible');
     });
 
-    document.addEventListener('click', async () => {
-        const backgroundMusic = document.getElementById('background-music');
-        await backgroundMusic.play();
-    })
+    playButton.addEventListener('click', function() {
+        if (!isPlaying) {
+            vinyl.classList.add('spin-animation');
+            backgroundMusic.play();
+            tonearm.classList.add('tonearm-rotate');
+        } else {
+            vinyl.classList.remove('spin-animation');
+            backgroundMusic.pause();
+            tonearm.classList.remove('tonearm-rotate');
+        }
+        isPlaying = !isPlaying;
+    });
+});
 </script>
 </html>
