@@ -184,17 +184,17 @@
 
         .timeline-info {
             position: absolute;
-            bottom: 15%;
-            left: 50%;
+            bottom: 25%;
+            left: 5%;
             transform: translateX(-50%);
-            width: 80%;
+            width: 40%;
             padding: 10px;
             background-color: #fff;
             color: #333;
             border: 1px solid #ccc;
             border-radius: 5px;
             text-align: center;
-            font-size: 16px;
+            font-size: 14px;
             display: none;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
@@ -235,11 +235,11 @@
 
         .music-note {
             position: absolute;
-            color: #fff; /* Màu nốt nhạc */
-            font-size: 20px; /* Kích thước mặc định */
-            opacity: 0.8; /* Độ trong suốt nhẹ */
-            pointer-events: none; /* Không ảnh hưởng đến thao tác chuột */
-            animation: floatMusic 3s linear infinite; /* Hiệu ứng rơi */
+            color: #fff;
+            font-size: 20px;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: floatMusic 3s linear infinite;
         }
 
         @keyframes floatMusic {
@@ -329,8 +329,7 @@
         setTimeout(() => note.remove(), 3000);
     }
 
-        playButton.addEventListener('click', function() {
-            event.stopPropagation();
+        playButton.addEventListener('mouseover', function() {
             info.classList.toggle('visible');
         });
 
