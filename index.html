@@ -12,10 +12,19 @@
             font-family: "Agu Display", serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main-container {
             background-image: url('/Asset 15.png'); ;
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 1000px;
+            flex-direction: column;
             height: 100vh;
         }
 
@@ -29,15 +38,15 @@
             height: 600px;
             position: relative;
             background-color: #42a6c2;
-            border-radius: 10px;
+            border-radius: 20px;
         }
 
         .vinyl {
             position: absolute;
-            top: 20%;
-            left: 10%;
-            width: 450px;
-            height: 450px;
+            top: 5%;
+            left: 13%;
+            width: 550px;
+            height: 550px;
             background-image: url('/Asset 1-0.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -50,10 +59,10 @@
 
         .vinyl-center {
             position: absolute;
-            top: 47%;
-            left: 28%;
-            width: 130px;
-            height: 126px;
+            top: 38%;
+            left: 35%;
+            width: 155px;
+            height: 157px;
             background-image: url('/Asset 1-1.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -62,8 +71,8 @@
 
         .vinyl-point {
             position: absolute;
-            top: 56%;
-            left: 34%;
+            top: 49%;
+            left: 43%;
             width: 20px;
             height: 20px;
             background-image: url('/Asset 1-2.png');
@@ -79,21 +88,21 @@
 
         .tonearm {
             position: absolute;
-            top: 18%;
-            right: 28%;
-            width: 185px;
-            height: 300px;
+            top: 3%;
+            right: 0%;
+            width: 300px;
+            height: 400px;
             background-image: url('/Asset 5.png');
             background-size: contain;
             background-repeat: no-repeat;
-            transform: rotate(-30deg);
+            transform: rotate(-10deg);
             transition: transform 0.5s ease;
         }
 
         .volume-slider {
             position: absolute;
-            bottom: 17%;
-            right: 26%;
+            bottom: 5%;
+            right: 3%;
             width: 50px;
             height: 200px;
             background-image: url('/Asset 10.png');
@@ -139,9 +148,9 @@
 
         .footer {
             position: absolute;
-            bottom: 19%;
+            bottom: 7%;
             width: 100%;
-            left: 15%;
+            left: 38%;
             height: 50px;
             background-image: url('/Asset 9.png');
             background-size: contain;
@@ -151,10 +160,9 @@
 
         .icon-footer{
             position: absolute;
-            position: absolute;
             bottom: 6%;
             width: 100%;
-            left: 6%;
+            left: 25%;
             height: 20px;
             background-image: url('/Asset 11.png');
             background-size: contain;
@@ -174,29 +182,12 @@
             background-position: center;
         }
 
-        .timeline-button {
-            position: absolute;
-            bottom: 2%;
-            left: 90%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background-color: #dd5341;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
         .timeline-info {
             position: absolute;
             bottom: 15%;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: 80%;
             padding: 10px;
             background-color: #fff;
             color: #333;
@@ -242,123 +233,132 @@
             transition: transform 0.5s ease;
         }
 
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            color: white;
-            font-size: 12px;
-            user-select: none;
-            pointer-events: none;
-            z-index: 9999;
-            animation: snowfall linear infinite;
+        .music-note {
+            position: absolute;
+            color: #fff; /* Màu nốt nhạc */
+            font-size: 20px; /* Kích thước mặc định */
+            opacity: 0.8; /* Độ trong suốt nhẹ */
+            pointer-events: none; /* Không ảnh hưởng đến thao tác chuột */
+            animation: floatMusic 3s linear infinite; /* Hiệu ứng rơi */
         }
 
-        @keyframes snowfall {
-            to {
-                transform: translateY(100vh); /* Rơi xuống dưới cùng màn hình */
+        @keyframes floatMusic {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50px) scale(1.5);
+                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="main-container">
         <h1 class="text-header">The Soul of the "FOR REST"</h1>
-        <div class="top-left"></div>
-        <div class="vinyl"></div>
-        <div class="vinyl-center"></div>
-        <div class="vinyl-point"></div>
-        <div class="tonearm"></div>
-        <div class="volume-slider"></div>
-        <div class="button-red-left"></div>
-        <div class="button-black-bottom"></div>
-        <div class="button-red"></div>
-        <div class="icon-footer"></div>
-        <div class="footer"></div>
-
-        <div class="timeline-button">Info</div>
-        <div class="timeline-info">
-            <p><strong>Timeline</strong></p>
-            <p>Day 1: </p>
-            <p>- 12h30: Di chuyển</p>
-            <p>- 14h15-17h: Chơi game, chụp ảnh</p>
-            <p>- 18h-19h30: Gala, trao giải, phát biểu</p>
-            <p>- 19h30-....: Tiệc tối</p>
-            <p>Day 2: </p>
-            <p>- 10h: Dọn đồ, checkout</p>
-            <p>- 12h: Xuất phát về</p>
-            <p><strong>Location:</strong> Đồng Chanh Lake Ville</p>
-            <div class="dress-code"><strong>Dress code:</strong>
-                <p class="dress-code-balls">
-                    <span class="dress-code-ball ball-1"></span>
-                    <span class="dress-code-ball ball-2"></span>
-                    <span class="dress-code-ball ball-3"></span>
-                    <span class="dress-code-ball ball-4"></span>
-                </p>
+        <div class="container">
+            <div class="top-left"></div>
+            <div class="vinyl"></div>
+            <div class="vinyl-center"></div>
+            <div class="vinyl-point"></div>
+            <div class="tonearm"></div>
+            <div class="volume-slider"></div>
+            <div class="button-red-left"></div>
+            <div class="button-black-bottom"></div>
+            <div class="button-red"></div>
+            <div class="icon-footer"></div>
+            <div class="footer"></div>
+    
+            <div class="timeline-info">
+                <p><strong>Timeline</strong></p>
+                <p>Day 1: </p>
+                <p>- 12h30: Di chuyển</p>
+                <p>- 14h15-17h: Chơi game, chụp ảnh</p>
+                <p>- 18h-19h30: Gala, trao giải, phát biểu</p>
+                <p>- 19h30-....: Tiệc tối</p>
+                <p>Day 2: </p>
+                <p>- 10h: Dọn đồ, checkout</p>
+                <p>- 12h: Xuất phát về</p>
+                <p><strong>Location:</strong> Đồng Chanh Lake Ville</p>
+                <div class="dress-code"><strong>Dress code:</strong>
+                    <p class="dress-code-balls">
+                        <span class="dress-code-ball ball-1"></span>
+                        <span class="dress-code-ball ball-2"></span>
+                        <span class="dress-code-ball ball-3"></span>
+                        <span class="dress-code-ball ball-4"></span>
+                    </p>
+                </div>
             </div>
+            <audio id="background-music" controls allow="autoplay" loop style="display: none;">
+                <source src="/musicbg.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </div>
-        <audio id="background-music" controls allow="autoplay" loop style="display: none;">
-            <source src="/musicbg.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 <script>
     document.addEventListener("DOMContentLoaded", async () => {
-    const button = document.querySelector('.timeline-button');
-    const playButton = document.querySelector('.button-red-left');
-    const backgroundMusic = document.getElementById('background-music');
-    const info = document.querySelector('.timeline-info');
-    const vinyl = document.querySelector('.vinyl');
-    const tonearm = document.querySelector('.tonearm');
+        const playButton = document.querySelector('.button-red-left');
+        const backgroundMusic = document.getElementById('background-music');
+        const info = document.querySelector('.timeline-info');
+        const vinyl = document.querySelector('.vinyl');
+        const tonearm = document.querySelector('.tonearm');
 
-    let isPlaying = false;
+        let isPlaying = false;
 
-    button.addEventListener('click', function() {
-        info.classList.toggle('visible');
-    });
+        let musicInterval;
 
-    playButton.addEventListener('click', function() {
-        if (!isPlaying) {
-            vinyl.classList.add('spin-animation');
-            backgroundMusic.play();
-            tonearm.classList.add('tonearm-rotate');
-        } else {
-            vinyl.classList.remove('spin-animation');
-            backgroundMusic.pause();
-            tonearm.classList.remove('tonearm-rotate');
-        }
-        isPlaying = !isPlaying;
-    });
+    function createRandomNote() {
+        const note = document.createElement('div');
+        note.classList.add('music-note');
+        note.innerText = '♪';
 
-    function createSnowflake() {
-        const snowflake = document.createElement("div");
-        snowflake.classList.add("snowflake");
-        snowflake.innerHTML = "&#10052;";
+        const vinylRect = vinyl.getBoundingClientRect();
+        const offsetX = Math.random() * vinylRect.width - vinylRect.width / 2;
+        const offsetY = Math.random() * vinylRect.height - vinylRect.height / 2;
 
-        snowflake.style.left = `${Math.random() * 100}vw`;
-        snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        snowflake.style.opacity = Math.random();
-        snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+        note.style.left = `${vinylRect.left + vinylRect.width / 2 + offsetX}px`;
+        note.style.top = `${vinylRect.top + vinylRect.height / 2 + offsetY}px`;
 
-        document.body.appendChild(snowflake);
+        note.style.fontSize = `${Math.random() * 15 + 15}px`;
 
-        setTimeout(() => {
-            snowflake.remove();
-        }, 5000);
+        document.body.appendChild(note);
+
+        setTimeout(() => note.remove(), 3000);
     }
 
-    setInterval(createSnowflake, 100);
+        playButton.addEventListener('click', function() {
+            event.stopPropagation();
+            info.classList.toggle('visible');
+        });
 
-    button.addEventListener('click', () => {
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 }
+        playButton.addEventListener('click', function() {
+            if (!isPlaying) {
+                vinyl.classList.add('spin-animation');
+                backgroundMusic.play();
+                tonearm.classList.add('tonearm-rotate');
+
+                musicInterval = setInterval(createRandomNote, 500);
+            } else {
+                vinyl.classList.remove('spin-animation');
+                backgroundMusic.pause();
+                tonearm.classList.remove('tonearm-rotate');
+
+                clearInterval(musicInterval);
+            }
+            isPlaying = !isPlaying;
+        });
+
+        document.addEventListener("click", function (event) {
+            const isClickInsideInfo = info.contains(event.target);
+            const isClickOnPlayButton = playButton.contains(event.target);
+
+            if (!isClickInsideInfo && !isClickOnPlayButton) {
+                info.classList.remove('visible');
+            }
         });
     });
-});
 </script>
 </html>
