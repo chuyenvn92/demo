@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Agu+Display&display=swap" rel="stylesheet">
     <title>OE Year end</title>
     <style>
+        @font-face {
+            font-family: ClassiqueSaigon;
+            src:url("/ClassiqueSaigon.otf");
+        }
+        @font-face {
+            font-family: NVNCocogooseVintage;
+            src:url("/NVNCocogooseVintage.ttf");
+        }
         body {
-            font-family: "Agu Display", serif;
+            font-family: "ClassiqueSaigon", serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -123,7 +128,7 @@
             background-repeat: no-repeat;
         }
 
-        /* .button-red-left {
+        .button-red-left {
             position: absolute;
             bottom: 15%;
             left: 3%;
@@ -133,7 +138,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             cursor: pointer;
-        } */
+        }
 
         .button-black-bottom {
             position: absolute;
@@ -183,18 +188,20 @@
         }
 
         .timeline-info {
+            font-family: 'NVNCocogooseVintage', sans-serif;
             position: absolute;
             bottom: 25%;
             left: 5%;
             transform: translateX(-50%);
             width: 40%;
             padding: 10px;
+            padding-left: 40px;
             background-color: #fff;
             color: #333;
             border: 1px solid #ccc;
             border-radius: 5px;
-            text-align: center;
-            font-size: 14px;
+            text-align: left;
+            font-size: 6px;
             display: none;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
@@ -205,7 +212,6 @@
 
         .dress-code {
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 10px;
         }
@@ -253,52 +259,42 @@
             }
         }
 
-        .button-red-left {
-            position: absolute;
-            bottom: 15%;
-            left: 3%;
-            width: 50px;
-            height: 50px;
-            background-image: url('/Asset 7.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
         }
 
-        /* Hiệu ứng hover: phóng to nhẹ và viền sáng */
-        .button-red-left:hover {
-            transform: scale(1.1); /* Phóng to 10% */
-            box-shadow: 0 0 15px rgba(255, 100, 0, 0.8); /* Viền sáng màu cam */
+        .button-red-left.shake-animation {
+            animation: shake 0.5s ease-in-out infinite alternate;
         }
 
-        /* Hiệu ứng click: nhấn xuống */
-        .button-red-left:active {
-            transform: scale(0.95); /* Nhỏ lại khi click */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Animation rung nhẹ */
         @keyframes pulse {
             0% {
                 transform: scale(1);
-                box-shadow: 0 0 15px rgba(255, 100, 0, 0.5);
+                opacity: 1;
             }
             50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 25px rgba(255, 100, 0, 0.7);
+                transform: scale(1.1);
+                opacity: 0.8;
             }
             100% {
                 transform: scale(1);
-                box-shadow: 0 0 15px rgba(255, 100, 0, 0.5);
+                opacity: 1;
             }
         }
 
-        /* Thêm lớp cho trạng thái "active" */
-        .button-red-left.playing {
-            animation: pulse 1.5s infinite; /* Animation rung */
-            box-shadow: 0 0 20px rgba(255, 100, 0, 0.8);
+        .button-red-left.pulse-animation {
+            animation: pulse 1.5s infinite;
         }
     </style>
 </head>
@@ -328,7 +324,7 @@
                 <p>Day 2: </p>
                 <p>- 10h: Dọn đồ, checkout</p>
                 <p>- 12h: Xuất phát về</p>
-                <p><strong>Location:</strong> Đồng Chanh Lake Ville</p>
+                <p><strong>Location:</strong> <a href="https://maps.app.goo.gl/PUZdWSAmxyHix7wx8" target="_blank"> Rolling Hill Villas Resort</a></p>
                 <div class="dress-code"><strong>Dress code:</strong>
                     <p class="dress-code-balls">
                         <span class="dress-code-ball ball-1"></span>
@@ -358,6 +354,8 @@
 
         let musicInterval;
 
+        playButton.classList.add('pulse-animation');
+
     function createRandomNote() {
         const note = document.createElement('div');
         note.classList.add('music-note');
@@ -378,17 +376,25 @@
     }
 
         playButton.addEventListener('mouseover', function() {
-            info.classList.toggle('visible');
+            playButton.classList.add('shake-animation');
+        });
+
+        playButton.addEventListener('mouseout', function() {
+            playButton.classList.remove('shake-animation');
         });
 
         playButton.addEventListener('click', function() {
             if (!isPlaying) {
+                info.classList.toggle('visible');
+                playButton.classList.remove('pulse-animation');
                 vinyl.classList.add('spin-animation');
                 backgroundMusic.play();
                 tonearm.classList.add('tonearm-rotate');
 
                 musicInterval = setInterval(createRandomNote, 500);
             } else {
+                info.classList.toggle('visible');
+                playButton.classList.add('pulse-animation');
                 vinyl.classList.remove('spin-animation');
                 backgroundMusic.pause();
                 tonearm.classList.remove('tonearm-rotate');
