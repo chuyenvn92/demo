@@ -123,7 +123,7 @@
             background-repeat: no-repeat;
         }
 
-        .button-red-left {
+        /* .button-red-left {
             position: absolute;
             bottom: 15%;
             left: 3%;
@@ -133,7 +133,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             cursor: pointer;
-        }
+        } */
 
         .button-black-bottom {
             position: absolute;
@@ -252,11 +252,59 @@
                 opacity: 0;
             }
         }
+
+        .button-red-left {
+            position: absolute;
+            bottom: 15%;
+            left: 3%;
+            width: 50px;
+            height: 50px;
+            background-image: url('/Asset 7.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Hiệu ứng hover: phóng to nhẹ và viền sáng */
+        .button-red-left:hover {
+            transform: scale(1.1); /* Phóng to 10% */
+            box-shadow: 0 0 15px rgba(255, 100, 0, 0.8); /* Viền sáng màu cam */
+        }
+
+        /* Hiệu ứng click: nhấn xuống */
+        .button-red-left:active {
+            transform: scale(0.95); /* Nhỏ lại khi click */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animation rung nhẹ */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(255, 100, 0, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(255, 100, 0, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(255, 100, 0, 0.5);
+            }
+        }
+
+        /* Thêm lớp cho trạng thái "active" */
+        .button-red-left.playing {
+            animation: pulse 1.5s infinite; /* Animation rung */
+            box-shadow: 0 0 20px rgba(255, 100, 0, 0.8);
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
-        <h1 class="text-header">The Soul of the "FOR REST"</h1>
+        <h1 class="text-header">The Sound of the "FOR REST"</h1>
         <div class="container">
             <div class="top-left"></div>
             <div class="vinyl"></div>
