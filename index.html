@@ -399,6 +399,27 @@
                 info.classList.remove('visible');
             }
         });
+
+        document.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "F12" || (e.ctrlKey || e.metaKey) && e.shiftKey && ["I", "J", "C"].includes(e.key.toUpperCase()) || (e.ctrlKey || e.metaKey) && e.key === "U") {
+                e.preventDefault();
+            }
+        });
+
+        const element = new Image();
+        Object.defineProperty(element, "id", {
+            get: function () {
+                alert("Developer tools detected. Please close it!");
+            },
+        });
+
+        setInterval(() => {
+            console.log(element);
+        }, 1000);
     });
 </script>
 </html>
